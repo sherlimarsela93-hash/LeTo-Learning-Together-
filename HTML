@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar SD - Platform Pembelajaran</title>
+    
+    <!-- Meta untuk SEO -->
+    <meta name="description" content="Platform pembelajaran interaktif untuk SD kelas 1-6">
+    <meta name="keywords" content="belajar sd, matematika, bahasa indonesia, ipa, ips">
+    
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- Font Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">📚 Belajar SD</h1>
+            <nav class="nav">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">Tentang</a>
+                <a href="#contact" class="nav-link">Kontak</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Hero Section -->
+            <section id="hero" class="hero">
+                <div class="hero-content">
+                    <h2 class="hero-title">Belajar Jadi Lebih Menyenangkan!</h2>
+                    <p class="hero-subtitle">Platform pembelajaran interaktif untuk semua mata pelajaran SD</p>
+                    <button class="btn-primary" onclick="showClassSelector()">Mulai Belajar</button>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-icons">
+                        <span class="icon">🎓</span>
+                        <span class="icon">📖</span>
+                        <span class="icon">🔬</span>
+                        <span class="icon">🌍</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Class Selector -->
+            <section id="class-selector" class="class-selector hidden">
+                <h2 class="section-title">Pilih Kelasmu</h2>
+                <div class="class-grid">
+                    <div class="class-card" data-class="1">
+                        <div class="class-number">1</div>
+                        <h3>Kelas Satu</h3>
+                        <p>Dasar-dasar belajar</p>
+                    </div>
+                    <div class="class-card" data-class="2">
+                        <div class="class-number">2</div>
+                        <h3>Kelas Dua</h3>
+                        <p>Mengembangkan kemampuan</p>
+                    </div>
+                    <div class="class-card" data-class="3">
+                        <div class="class-number">3</div>
+                        <h3>Kelas Tiga</h3>
+                        <p>Belajar lebih dalam</p>
+                    </div>
+                    <div class="class-card" data-class="4">
+                        <div class="class-number">4</div>
+                        <h3>Kelas Empat</h3>
+                        <p>Konsep yang lebih kompleks</p>
+                    </div>
+                    <div class="class-card" data-class="5">
+                        <div class="class-number">5</div>
+                        <h3>Kelas Lima</h3>
+                        <p>Persiapan kelas tinggi</p>
+                    </div>
+                    <div class="class-card" data-class="6">
+                        <div class="class-number">6</div>
+                        <h3>Kelas Enam</h3>
+                        <p>Siap ke jenjang berikutnya</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Subjects Section -->
+            <section id="subjects" class="subjects hidden">
+                <div class="section-header">
+                    <button class="btn-back" onclick="backToClassSelector()">← Kembali</button>
+                    <h2 class="section-title" id="subjects-title">Mata Pelajaran</h2>
+                </div>
+                
+                <!-- Progress Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📚</div>
+                        <div class="stat-number" id="lessons-completed">0</div>
+                        <div class="stat-label">Pelajaran Selesai</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-number" id="average-score">0</div>
+                        <div class="stat-label">Rata-rata Skor</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-number" id="badges-earned">0</div>
+                        <div class="stat-label">Badge Didapat</div>
+                    </div>
+                </div>
+
+                <!-- Subject Cards -->
+                <div class="subjects-grid" id="subjects-grid">
+                    <!-- Content will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Lesson Content -->
+            <section id="lesson-content" class="lesson-content hidden">
+                <div class="section-header">
+                    <button class="btn-back" onclick="backToSubjects()">← Kembali</button>
+                    <h2 class="section-title" id="lesson-title">Pelajaran</h2>
+                </div>
+                <div id="lesson-body" class="lesson-body">
+                    <!-- Content will be populated by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Belajar SD. Dibuat dengan ❤️ untuk anak-anak Indonesia</p>
+            <div class="social-links">
+                <a href="#" class="social-link">📧</a>
+                <a href="#" class="social-link">📱</a>
+                <a href="#" class="social-link">🌐</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Loading Spinner -->
+    <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>Memuat...</p>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <span id="toast-message"></span>
+        <button onclick="hideToast()">×</button>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/curriculum.js"></script>
+    <script src="scripts/quiz.js"></script>
+</body>
+</html>
